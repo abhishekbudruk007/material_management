@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+<html>
+  <head>
+        <title>{% block title %} Gorson {% endblock %}</title>
+  </head>
+  
+  
+  <body>
+  {% block content %}
+        <div class="row" style="margin-left:0px;">
+          <div class="col-md-3">
+                {% include "side_menu.html" %}
+          </div>
+          <div class="col-md-9">
+              <div class="dis" id="home" style="display:none;">
+                  <h1>Home</h1>
+              </div>
+          </div>
+      </div>
+
+  {% endblock %}
+
+  </body>
+</html>
+

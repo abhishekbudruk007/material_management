@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+
+<form action="/Home/Purchase_Order/" method="post">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css">
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<body class=" app-student model-student change-form"
+  data-admin-utc-offset="19800">
+<div id="content" align="right">
+    <nav class="codrops-demos" >
+      <a href="/Home/">Home</a>
+
+    </nav>
+   </div> 
+    
+	
+	 	
+	 
+<div id="content" class="colM">
+      <div id="header">
+        <div id="branding">  
+          <h1 id="site-name"><a href="/admin/">Purchase Order</a></h1>
+        </div>
+      </div>  
+        <div id="content-main">
+        <fieldset class="module aligned ">
+        {% csrf_token %}
+
+        <nav class="codrops-demos">
+            <a href="Purchase_Print/?pk={{ form5 }}"><h1><p align="right">Print</p></h1></a>
+        </nav>
+        <table id="customers">
+    		
+   
+          <div class="form-row field-FName">
+            <div>
+    	        <tr>
+                    <tr><td>{{form.PO_NO.label }}</td>
+                    <td>{{form.PO_NO}}</td> </tr>
+                    <tr><td>{{form.PO_Date.label }}</td>
+                    <td> {{form.PO_Date}}</td> </tr>
+                    <tr><td>{{form.Supplier.label }}</td>
+                    <td> {{form.Supplier}}</td> </tr>
+                    <tr><td>{{form.amount.label }}</td>
+                    <td> {{form.amount}}</td> </tr>
+                </tr>
+    		     </div>
+          </div>     
+         
+        </table>
+        <table >
+          
+           <tr>
+         
+             <th>{{form.Row_Mat_Size.label}}</th> 
+             <th>{{form.Row_Mat_Shape.label}}</th>
+             <th>{{form.Row_Mat_Type.label}}</th>
+             <th>{{form.Materil_Qty.label}}</th>
+             <th>{{form.Materil_Unit.label}}</th> 
+             <th>{{form.Materil_Rate.label}}</th>
+             <tr><td>{{form.Row_Mat_Size}}</td>
+             <td>{{form.Row_Mat_Shape}}</td>
+             
+             <td>{{form.Row_Mat_Type}}</td>
+              
+             <td>{{form.Materil_Qty}}</td>
+             
+             <td>{{form.Materil_Unit}}</td>
+             
+             <td>{{form.Materil_Rate}}</td>
+         
+          <td>
+         <input type="submit" value="Submit">
+
+          </td>
+        </tr>
+
+        </table>
+
+        <table id="customers">>
+          
+            <tr>
+             <th>{{form.Row_Mat_Size.label}}</th> 
+             <th>{{form.Row_Mat_Shape.label}}</th>
+             <th>{{form.Row_Mat_Type.label}}</th>
+             <th>{{form.Materil_Qty.label}}</th>
+             <th>{{form.Materil_Unit.label}}</th> 
+             <th>{{form.Materil_Rate.label}}</th>
+            </tr>
+            
+          
+            <tr>
+              {% for n3 in form2 %} 
+                <tr><td> {{n3.RowMatSize}}</td> <td>{{n3.RowMatShape}} </td><td>{{n3.RowMatType}} </td><td>{{n3.MaterilQty}}</td><td> {{n3.MaterilUnit}}</td><td>{{n3.MaterilRates}} </td></tr>
+              {% endfor %} 
+            </tr>
+        
+        </table>
+        </fieldset>   
+        
+</div>
+</div>
+</body>
+</form>
+</html>

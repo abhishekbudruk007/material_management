@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en-us" >
+    <head>
+        <title>{% block title %} Gorson: Add Supplier {% endblock %}</title>
+        {% block customjs %}
+            <script src="{% static 'js/customJS/add_raw_material.js' %}"></script>
+        {% endblock %}
+    </head>
+
+<body>
+    {% block content %}
+        <div class="row" style="margin-left:0px;">
+          <div class="col-md-3">
+                {% include "side_menu.html" %}
+          </div>
+          <div class="col-md-9">
+              <form action="/Home/Purchase_Entry/" method="post">
+                  {% csrf_token %}
+                   <table class="table table-bordered table-hover " >
+
+
+                    <tr>
+                        {{search_query}}
+                        <tr><td>{{form.R1_PO_NO.label }}</td>
+                        <td> {{form.R1_PO_NO}}</td>
+                        <td>{{form.Supplier.label }}</td>
+                        <td> {{ form.Supplier }} </td></tr>
+                        <tr><td>{{form.inv_NO.label }}</td>
+                        <td> {{form.inv_NO}}</td>
+                        <td>{{form.inv_Date.label }}</td>
+                        <td> {{form.inv_Date}}</td></tr>
+    <!--                        <tr><td>{{form.amount.label }}</td>-->
+    <!--                        <td> {{form.amount}}</td> </tr>-->
+                      </tr>
+
+                    </table>
+            <table class="table table-bordered table-hover " >
+              <tr>
+                <thead>
+                    <tr>
+                     <th>{{form.R1_Row_Mat_Size.label}}</th>
+                     <th>{{form.R1_Row_Mat_Shape.label}}</th>
+                     <th>{{form.R1_Row_Mat_Type.label}}</th>
+                     <th>{{form.R1_Materil_Qty.label}}</th>
+                     <th>{{form.R1_Materil_Unit.label}}</th>
+                     <th>{{form.R1_Materil_Rate.label}}</th>
+                     <th>Action</th>
+                    </tr>
+                </thead>
+                 <tr><td>{{form.R1_Row_Mat_Size}}</td>
+                 <td>{{form.R1_Row_Mat_Shape}}</td>
+
+                 <td>{{form.R1_Row_Mat_Type}}</td>
+
+                 <td>{{form.R1_Materil_Qty}}</td>
+
+                 <td>{{form.R1_Materil_Unit}}</td>
+
+                 <td>{{form.R1_Materil_Rate}}</td>
+
+              <td>
+                <input type="submit" id="add_purchase" class="btn btn-success" value="Submit">
+              </td>
+            </tr>
+            </table>
+
+            <table class="table table-bordered table-hover " id="purchase_orders_table">
+              <tr>
+
+                 <th>{{form.R1_Row_Mat_Size.label}}</th>
+                 <th>{{form.R1_Row_Mat_Shape.label}}</th>
+                 <th>{{form.R1_Row_Mat_Type.label}}</th>
+                 <th>{{form.R1_Materil_Qty.label}}</th>
+                 <th>{{form.R1_Materil_Unit.label}}</th>
+                 <th>{{form.R1_Materil_Rate.label}}</th>
+                 <th>Total</th>
+
+
+              </tr>
+              <tr>
+              {% for n3 in form2 %}
+                    <tr><td> {{n3.R2_RowMatSize}}</td> <td>{{n3.R2_RowMatShape}} </td><td>{{n3.R2_RowMatType}} </td><td>{{n3.R2_MaterilQty}}</td><td> {{n3.R2_MaterilUnit}}</td><td>{{n3.R2_MaterilRates}} </td><td>{{n3.R2_Total}} </td></tr>
+                {% endfor %}
+              </tr>
+            </table>
+
+              <table class="table table-bordered table-hover ">
+                  <tr>
+                     <th>Total</th>
+                      <th><p id="final_amount">{{ final_amount }}</p></th>
+                  </tr>
+                </table>
+              </form>
+          </div>
+        </div>
+  {% endblock %}
+
+</body>
+
+</form>
+</html>

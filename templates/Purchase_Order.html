@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en-us" >
+    <head>
+        <title>{% block title %} Gorson: Purchase Order {% endblock %}</title>
+    </head>
+<body>
+    {% block content %}
+        <div class="row" style="margin-left:0px;">
+          <div class="col-md-3">
+                {% include "side_menu.html" %}
+          </div>
+          <div class="col-md-9">
+              <form action="/Home/Purchase_Order/" method="post">
+                  {% csrf_token %}
+                  <table class="table table-bordered table-hover ">
+                      <thead>
+                        <tr>
+                            <th>{{form.PO_NO.label }}</th>
+                            <th>{{form.Supplier.label }}</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                         <td>{{form.PO_NO}}</td>
+                         <td>{{form.Supplier}}</td>
+                      </tr>
+                  </table>
+                  <br><br>
+                  <h3>Purchase Order Details</h3>
+                  <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr>
+                                 <th>{{form.Row_Mat_Size.label}}</th>
+                                 <th>{{form.Row_Mat_Shape.label}}</th>
+                                 <th>{{form.Row_Mat_Type.label}}</th>
+                                 <th>{{form.Materil_Qty.label}}</th>
+                                 <th>{{form.Materil_Unit.label}}</th>
+                                 <th>{{form.Materil_Rate.label}}</th>
+                                 <th>Action</th>
+                            </tr>
+                        </thead>
+                         <tr>
+                             <td>{{form.Row_Mat_Size}}</td>
+                             <td>{{form.Row_Mat_Shape}}</td>
+                             <td>{{form.Row_Mat_Type}}</td>
+                             <td>{{form.Materil_Qty}}</td>
+                             <td>{{form.Materil_Unit}}</td>
+                             <td>{{form.Materil_Rate}}</td>
+                              <td>
+                                 <input type="submit" class="btn btn-success" value="Submit">
+                              </td>
+                         </tr>
+                  </table>
+              </form>
+
+              <br>
+              <table class="table table-bordered table-hover ">
+                <thead>
+                    <tr>
+                         <th>{{form.Row_Mat_Size.label}}</th>
+                         <th>{{form.Row_Mat_Shape.label}}</th>
+                         <th>{{form.Row_Mat_Type.label}}</th>
+                         <th>{{form.Materil_Qty.label}}</th>
+                         <th>{{form.Materil_Unit.label}}</th>
+                         <th>{{form.Materil_Rate.label}}</th>
+                    </tr>
+                </thead>
+
+
+                <tr>
+
+                  {% for n3 in form2 %}
+                    <tr>
+                        <td> {{n3.RowMatSize}}</td>
+                        <td>{{n3.RowMatShape}} </td>
+                        <td>{{n3.RowMatType}} </td>
+                        <td>{{n3.MaterilQty}}</td>
+                        <td> {{n3.MaterilUnit}}</td>
+                        <td>{{n3.MaterilRates}} </td>
+                    </tr>
+                  {% endfor %}
+                </tr>
+            </table>
+
+          </div>
+        </div>
+    {% endblock %}
+</body>

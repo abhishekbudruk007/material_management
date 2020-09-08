@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="An example of Django project with basic user functionality.">
+    <meta name="author" content="Yehor Smoliakov">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+
+    <title>{% block title %}  {% endblock %}</title>
+
+    <!-- CSS only -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <script src="{% static 'vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/vendor/moment.min.js' %}"></script>
+	<script src="{% static 'js/vendor/moment-timezone-with-data.js' %}"></script>
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+    {% block customjs %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+<div class="content-wrapper">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            {% if request.user.is_authenticated %}
+
+                <b>Welcome {{ request.user.email }} </b>.
+
+            {% else %}
+
+                <b>You are a guest</b>.
+
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            <h1>Gorson </h1><br>
+            <span>Raw Material Maintaining</span>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+</div>
+<div class="content-wrapper">
+<div class="container-fluid">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          {% if message.tags == "success" %}
+            <h4 class="{{ message.tags }}" style="background-color:green; text-align:center;">{{ message }}</h4>
+          {% else %}
+            <h4 class="{{ message.tags }}" style="background-color:red; text-align:center;">{{ message }}</h4>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+ </div>
+ </div>
+<br><br>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        {% block content %}
+            No content.
+        {% endblock %}
+    </div>
+</div>
+
+
+</body>
+</html>
