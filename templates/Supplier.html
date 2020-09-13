@@ -13,6 +13,11 @@
                 {% include "side_menu.html" %}
           </div>
           <div class="col-md-9">
+              <div id="header">
+                <div id="branding">
+                  <h1 id="site-name"><a href="/admin/"><h3>Add Supplier</h3></a></h1>
+                </div>
+              </div>
               <form action="/Home/Add_Supplier/" method="post">
                   {% csrf_token %}
                    {% for n in form %}

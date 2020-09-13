@@ -31,6 +31,7 @@ urlpatterns = [
     path('Home/logout/', views.Logout, name='logout'),
 
     #All API's
-    path('api/get_suppliers', apis.GetSuppliers.as_view(), name='get_suppliers')
-    
+    path('api/get_suppliers', apis.GetSuppliers.as_view(), name='get_suppliers'),
+    path('api/get_stock_details', apis.GetStockDetails.as_view(), name='get_stock_details')
+
 ]

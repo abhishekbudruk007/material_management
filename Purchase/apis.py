@@ -6,7 +6,9 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import PurchaseOrder
 from django.core import serializers
-from Purchase.serializers import PurchaseOrderSerializer
+from Purchase.serializers import PurchaseOrderSerializer ,CuttingDetailSerializer
+from .models import CuttingDetail
+
 
 class GetSuppliers(APIView):
     def post(self, request, *args,**kwargs):
@@ -21,3 +23,15 @@ class GetSuppliers(APIView):
         except Exception as e:
             print("error ", e)
         return Response(suppliers_name)
+
+
+class GetStockDetails(APIView):
+    def post(self, request, *args,**kwargs):
+        stocks  = CuttingDetail.objects.all().exclude(R1_MaterilQty=0)
+        serialized_data = serializers.serialize('json', stocks)
+        return Response(serialized_data)
+
+
+
+
+

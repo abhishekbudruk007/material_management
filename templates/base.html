@@ -13,32 +13,22 @@
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
-
-<!--    Load Datatable Styles-->
-
-    <link href="{% static 'css/colReorder.dataTables.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/responsive.dataTables.min.css' %}" rel="stylesheet">
-
     <script src="{% static 'vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/vendor/moment.min.js' %}"></script>
 	<script src="{% static 'js/vendor/moment-timezone-with-data.js' %}"></script>
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <style>
         .page-footer{
-            position: absolute;
+            position: static;
             bottom: 0;
             width: 100%;
             margin: 0 auto;
         }
-
     </style>
-
-<!--    Load Datatable JS-->
-
-
 
     {% block customjs %}
 
@@ -77,7 +67,7 @@
         </nav>
         </div>
     </div>
-
+    <br>
     <div class="content-wrapper">
     <div class="container-fluid">
         {% if messages %}
@@ -93,7 +83,7 @@
         {% endif %}
      </div>
      </div>
-<br><br>
+<br>
     <div class="content-wrapper">
         <div class="container-fluid">
             {% block content %}
@@ -103,13 +93,13 @@
     </div>
     <!-- Footer -->
     <br><br>
-    <div class="content-wrapper">
-        <footer class="page-footer font-small special-color-dark pt-4" style="background: orange;">
-          <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-          </div>
-        </footer>
-    </div>
+<!--    <div class="content-wrapper">-->
+<!--        <footer class="page-footer font-small special-color-dark pt-4" style="background: orange;">-->
+<!--          <div class="footer-copyright text-center py-3">© 2020 Copyright:-->
+<!--            <a href="https://mdbootstrap.com/"> gorson.com</a>-->
+<!--          </div>-->
+<!--        </footer>-->
+<!--    </div>-->
 </div>
 </body>
 
