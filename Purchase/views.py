@@ -43,8 +43,10 @@ def Login(request):
             login(request, user)
             # Redirect to a success page.
             print("Code is here")
-
-            return redirect('/Home/')
+            if user.is_superuser:
+                return redirect('/admin/')
+            else:
+                return redirect('/Home/')
 
         else:
             messages.error(request, 'Please Provide Correct Username and Password.')
@@ -55,9 +57,9 @@ def Login(request):
 
         return render(request, 'logindesign.html')
 
-
-def logout(request):
-    django_logout(request)
+from django.contrib.auth import logout
+def Logout(request):
+    logout(request)
     return HttpResponseRedirect("/")
 
 

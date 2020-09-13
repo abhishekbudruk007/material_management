@@ -28,7 +28,7 @@ urlpatterns = [
     path('Home/Stock/',views.Stock_Details, name='Stock'),
     path('Home/Stock/Cutting/',views.Cutting, name='Home/Stock/Cutting/'),
     path('Home/Purchase_Order/Purchase_Print/',views.Purchase_Print, name='Purchase_Order_Print'),
-    path('Home/logout/', views.logout, name='logout'),
+    path('Home/logout/', views.Logout, name='logout'),
 
     #All API's
     path('api/get_suppliers', apis.GetSuppliers.as_view(), name='get_suppliers')

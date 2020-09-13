@@ -1,6 +1,7 @@
 from django.contrib.admin.widgets import AdminDateWidget
 from django.utils import timezone
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Supplier
 from .models import PurchaseOrder
@@ -100,13 +101,13 @@ class Purchase_Entry(forms.Form):
 
 
 class sendcutting (forms.Form): 
-    id_cut=forms.IntegerField(label='ID',widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Row_Mat_Size=forms.CharField(label='RawMatSize',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Row_Mat_Shape=forms.CharField(label='RawMatShape',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Row_Mat_Type=forms.CharField(label='RawMatType',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Row_Mat_Unit=forms.CharField(label='Unit',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Materil_Qty=forms.DecimalField(label='MaterialQty',decimal_places=2,max_digits=10000,widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    R4_Materil_cut=forms.DecimalField(label='Cutting_Material',decimal_places=2,max_digits=10000)
+    id_cut=forms.IntegerField(label='ID',widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control'}))
+    R4_Row_Mat_Size=forms.CharField(label='RawMatSize',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control'}))
+    R4_Row_Mat_Shape=forms.CharField(label='RawMatShape',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control'}))
+    R4_Row_Mat_Type=forms.CharField(label='RawMatType',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control'}))
+    R4_Row_Mat_Unit=forms.CharField(label='Unit',max_length=20,widget=forms.TextInput(attrs={'readonly':'readonly','class': 'form-control'}))
+    R4_Materil_Qty=forms.DecimalField(label='MaterialQty',decimal_places=2,max_digits=10000,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    R4_Materil_cut=forms.DecimalField(label='Cutting_Material',decimal_places=2,max_digits=10000,widget=forms.TextInput(attrs={'class': 'form-control'}))
     
 
 

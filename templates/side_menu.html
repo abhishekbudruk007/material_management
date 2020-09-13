@@ -1,12 +1,11 @@
 <nav class="navbar navbar-dark bg-dark">
     <ul class="navbar-nav">
     {% if request.user.is_authenticated %}
-        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
         <li><a class="nav-link" href="{% url 'Add_Supplier' %}" id="add_supplier_tab" >Add Supplier</a></li>
         <li><a class="nav-link" href="{% url 'Purchase_Order' %}" id="purchase_order_tab" >Purchase Order</a></li>
         <li><a class="nav-link" href="{% url 'Purchase_Entry' %}" id="raw_material_tab" >Add RawMaterial</a></li>
         <li><a  class="nav-link" href="{% url 'Stock' %}"  id="cutting_tab" >Cutting</a></li>
-        <li><a class="nav-link"  href="{% url 'logout' %}" id="logout_tab" data-toggle="tab">logout</a></li>
     </ul>
     {% else %}
          <a class="nav-link" href="#">Log in</a>
