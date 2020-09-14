@@ -220,8 +220,6 @@ def add_purchase(request):
 
         # form2=Purchase_EntryDetail(request.POST)
         # check whether it's valid:
-        import pdb;
-        pdb.set_trace()
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
